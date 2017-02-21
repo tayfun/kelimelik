@@ -2,33 +2,37 @@ import React from 'react';
 
 var Tile = React.createClass({
     getInitialState: function() {
-      // Which class attribute this tile div will have.
-      var klass = "";
+      return {};
+    },
+
+    getTileContent: function() {
+      var letter, superscript;
       switch (this.props.type) {
-        case ":":
-          klass = "dl";
+        case 'tw':
+          letter = 'K';
+          superscript = 3;
           break;
-        case ";":
-          klass = "tl";
+        case 'dw':
+          letter = 'K';
+          superscript = 2;
           break;
-        case "*":
-          klass = "star";
+        case 'dl':
+          letter = 'H';
+          superscript = 2;
           break;
-        case "-":
-          klass = "dw";
+        case 'tl':
+          letter = 'H';
+          superscript = 3;
           break;
-        case "=":
-          klass = "tw";
-          break;
-        case '.':  // case '.':
-          klass = "sl";
+        case 'st':
+          letter = '★';
+          superscript = '';
           break;
         default:
-          klass = ""
+          letter = '';
+          superscript = '';
       }
-      return {
-        "klass": klass,
-      };
+      return <span className='tile-background'>{letter}<sup>{superscript}</sup></span>;
     },
 
     render: function() {
@@ -46,10 +50,8 @@ var Tile = React.createClass({
         );
       }
       return (
-        <div className="tile empty">
-          <span>
-            {this.state.klass}
-          </span>
+        <div className={'tile ' + this.props.type}>
+          {this.getTileContent()}
         </div>
       );
     }
