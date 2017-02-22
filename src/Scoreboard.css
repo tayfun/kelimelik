@@ -1,0 +1,9 @@
+#scoreboards {
+  float: right;
+}
+
+.scoreboard {
+  width: 14em;
+  padding: 0.5em;
+  border: 1px solid #bbb;
+}

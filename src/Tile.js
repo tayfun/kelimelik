@@ -1,13 +1,12 @@
 import React from 'react';
+// TODO: Move tile related CSS to Tile.css
+// import './Tile.css';
 
 var Tile = React.createClass({
-    getInitialState: function() {
-      return {};
-    },
 
     getTileContent: function() {
       var letter, superscript;
-      switch (this.props.type) {
+      switch (this.props.value) {
         case 'tw':
           letter = 'K';
           superscript = 3;
@@ -28,29 +27,33 @@ var Tile = React.createClass({
           letter = '★';
           superscript = '';
           break;
-        default:
+        case 'sl':
           letter = '';
+          superscript = '';
+          break;
+        default:
+          letter = this.props.value;
           superscript = '';
       }
       return <span className='tile-background'>{letter}<sup>{superscript}</sup></span>;
     },
 
     render: function() {
+      let classNames;
       // Border tile.
-      if (this.props.type === '#') {
+      if (this.props.value === '#') {
         return null;
       }
-      if (this.state.letter) {
-        return (
-          <div className="tile letter">
-            <span>
-              {this.state.letter}
-            </span>
-          </div>
-        );
+      if (this.props.value.length !== 2) {
+        classNames = 'tile letter';
+      } else {
+        classNames = 'tile ' + this.props.value;
+      }
+      if (this.props.tentative) {
+        classNames += ' tentative';
       }
       return (
-        <div className={'tile ' + this.props.type}>
+        <div className={classNames}>
           {this.getTileContent()}
         </div>
       );

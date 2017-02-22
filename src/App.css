@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  width: 59em;
+  margin: 1em auto;
 }
 
 .App-logo {
@@ -23,19 +25,16 @@
   to { transform: rotate(360deg); }
 }
 
-.App {
-  width: 45em;  
-  margin: 2em auto;
-}
-
 #board {
   /* position: relative; */
   display: table;
   border-collapse: collapse;
-  margin: 2em auto;
+  margin: 0 auto;
   border: 2px solid #aaa;
   box-shadow: 10px 10px 10px #aaa;
   color: #fff;
+  background-color: #B3B3B3;
+  float: left;
 }
 
 .tile {
@@ -45,6 +44,7 @@
   /* position: relative; */
   box-shadow: inset 13px 9px 70px -1px rgba(0,0,0,0.25);
   display: table-cell;
+  border-radius: 8px 8px;
 }
 
 .tile-background {
@@ -60,17 +60,45 @@
 }
 
 .tile.tw {
-  background-color: #cc9b6a;
+  background-color: #C0AC96;
 }
 
 .tile.dl {
-  background-color: #6A95CC;
+  background-color: #99BBC3;
 }
 
 .tile.tl {
-  background-color: #F274D1;
+  background-color: #CFB9CC;
 }
 
 .tile.dw {
-  background-color: #3C9942;
+  background-color: #A3C19B;
+}
+
+.tile.sl {
+  background-color: #E2E2E2;
+}
+
+.tile.letter {
+  background-color: #F8E59B;
+  text-transform: uppercase;
+}
+
+.tile.tentative {
+  background-color: #EBC325;
+  text-transform: uppercase;
+}
+
+#controls {
+  float: right;
+  margin: 0 1em;
+}
+
+#settings {
+  margin: 0 1em 1em;
+}
+
+#settings button {
+  font-size: 1em;
+  height: 3em;
 }
